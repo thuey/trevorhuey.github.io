@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trevor</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .title {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .links {
+            font-size: 1.5rem;
+        }
+
+        .links span {
+            margin: 0 0.5rem;
+            opacity: 0.7;
+        }
+
+        .name-tag {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            font-size: 0.875rem;
+            opacity: 0.7;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+        }
+
+        @media (max-width: 640px) {
+            .title {
+                font-size: 2rem;
+            }
+            
+            .links {
+                font-size: 1.2rem;
+                text-align: center;
+                padding: 0 1rem;
+            }
+
+            .name-tag {
+                top: 1rem;
+                left: 1rem;
+            }
+        }
+
+        a {
+            transition: opacity 0.3s ease;
+        }
+
+        a:hover {
+            opacity: 0.7;
+        }
+
+        /* Fade in animation */
+        @media (prefers-reduced-motion: no-preference) {
+            .fade-in {
+                opacity: 0;
+                animation: fadeIn 1s ease-out forwards;
+            }
+
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="name-tag fade-in">
+        Hi. My name is Trevor.
+    </div>
+    <div class="container mx-auto px-4">
+        <h1 class="title text-center font-light fade-in">
+            I'm a...
+        </h1>
+        <div class="links text-center fade-in">
+            <a href="#writer">Writer</a>
+            <span>/</span>
+            <a href="#developer">Developer</a>
+            <span>/</span>
+            <a href="#leader">Leader</a>
+        </div>
+    </div>
+
+    <script>
+        // If user prefers reduced motion, remove fade-in classes
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            document.querySelectorAll('.fade-in').forEach(element => {
+                element.style.opacity = '1';
+                element.classList.remove('fade-in');
+            });
+        }
+    </script>
+</body>
+</html>
